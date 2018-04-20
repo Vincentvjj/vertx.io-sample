@@ -34,7 +34,8 @@ public class Parentheses {
 
 		// if ( is the thing that is in the stack...
 			// and if the next thing is in the q is ), then pop it
-			// else, add that into the stack
+			// else, if ( is the last thing in the q, then mistake + 1, and pop.
+            // else, just add it
 
 		// else, the stack is empty, and just simply add.
 
@@ -49,14 +50,20 @@ public class Parentheses {
 				} else if(tempQueueVal.equals("(") && !qInput.isEmpty()) {
 					parenthesesStack.push(tempQueueVal);
 				} else {
-					numOfMistakes ++;
+					numOfMistakes++;
 					parenthesesStack.pop();
 				}
 			} else {
 				if(tempQueueVal.equals(")")) {
 					parenthesesStack.pop();
 				} else {
-					parenthesesStack.push(tempQueueVal);
+				    // else ,it will "("
+				    if(qInput.isEmpty()) {
+				        parenthesesStack.pop();
+				        numOfMistakes++;
+                    } else {
+                        parenthesesStack.push(tempQueueVal);
+                    }
 				}
 
 			}

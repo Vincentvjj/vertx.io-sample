@@ -26,7 +26,7 @@ public class MainVerticle extends AbstractVerticle {
         router.route(HttpMethod.POST, "/checkParentheses").handler(routingContext -> {
             HttpServerResponse response = routingContext.response();
             JsonObject jsonObject = routingContext.getBodyAsJson();
-            String input = jsonObject.getString("input");
+            String input = jsonObject.getString("input").trim();
             int result = Parentheses.findMistakes(input.split(""));
             response
                 .putHeader("content-type", "text/html")
