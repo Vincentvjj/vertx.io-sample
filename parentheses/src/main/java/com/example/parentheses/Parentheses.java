@@ -1,6 +1,8 @@
 package com.example.parentheses;
 
-import java.util.*;
+
+import java.util.ArrayDeque;
+import java.util.Stack;
 
 /**
  * This class provides the method to get the number of semantic errors from an input of parentheses.
